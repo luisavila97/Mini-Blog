@@ -45,7 +45,7 @@ const EditPost = () => {
     try {
       new URL(image);
     } catch (error) {
-      setFormError("A imagem precisa ser uma URL.");
+      setFormError("The image needs to be a URL.");
     }
 
     // create tags array
@@ -79,43 +79,39 @@ const EditPost = () => {
     <div className={styles.edit_post}>
       {post && (
         <>
-          <h2>Editando post: {post.title}</h2>
-          <p>Altere os dados do post como desejar</p>
+          <h2>Editing post: {post.title}</h2>
+          <p>Change the post data as you wish</p>
           <form onSubmit={handleSubmit}>
             <label>
-              <span>Título:</span>
+              <span>Title:</span>
               <input
                 type="text"
                 name="text"
                 required
-                placeholder="Pense num bom título..."
+                placeholder="Think of a good title..."
                 onChange={(e) => setTitle(e.target.value)}
                 value={title}
               />
             </label>
             <label>
-              <span>URL da imagem:</span>
+              <span>Image URL:</span>
               <input
                 type="text"
                 name="image"
                 required
-                placeholder="Insira uma imagem que representa seu post"
+                placeholder="Insert an image that represents your post"
                 onChange={(e) => setImage(e.target.value)}
                 value={image}
               />
             </label>
-            <p className={styles.preview_title}>Preview da imagem atual:</p>
-            <img
-              className={styles.image_preview}
-              src={post.image}
-              alt={post.title}
-            />
+            <p className={styles.preview_title}>Current image preview:</p>
+            <img className={styles.image_preview} src={post.image} alt={post.title} />
             <label>
-              <span>Conteúdo:</span>
+              <span>Content:</span>
               <textarea
                 name="body"
                 required
-                placeholder="Insira o conteúdo do post"
+                placeholder="Enter post content"
                 onChange={(e) => setBody(e.target.value)}
                 value={body}
               ></textarea>
@@ -126,7 +122,7 @@ const EditPost = () => {
                 type="text"
                 name="tags"
                 required
-                placeholder="Insira as tags separadas por vírgula"
+                placeholder="Enter tags separated by comma"
                 onChange={(e) => setTags(e.target.value)}
                 value={tags}
               />
@@ -134,12 +130,10 @@ const EditPost = () => {
             {!response.loading && <button className="btn">Editar</button>}
             {response.loading && (
               <button className="btn" disabled>
-                Aguarde.. .
+                Loading.. .
               </button>
             )}
-            {(response.error || formError) && (
-              <p className="error">{response.error || formError}</p>
-            )}
+            {(response.error || formError) && <p className="error">{response.error || formError}</p>}
           </form>
         </>
       )}

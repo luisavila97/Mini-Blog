@@ -41,16 +41,16 @@ const Register = () => {
 
   return (
     <div className={styles.register}>
-      <h1>Cadastre-se para postar</h1>
-      <p>Crie seu usuário e compartilhe suas histórias</p>
+      <h1>Sign up to post</h1>
+      <p>Create your user and share your stories</p>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>Nome:</span>
+          <span>Username:</span>
           <input
             type="text"
             name="displayName"
             required
-            placeholder="Nome do usuário"
+            placeholder="Username"
             onChange={(e) => setDisplayName(e.target.value)}
             value={displayName}
           />
@@ -61,37 +61,37 @@ const Register = () => {
             type="email"
             name="email"
             required
-            placeholder="E-mail do usuário"
+            placeholder="User e-mail"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
         </label>
         <label>
-          <span>Senha:</span>
+          <span>Password:</span>
           <input
             type="password"
             name="password"
             required
-            placeholder="Insira a senha"
+            placeholder="Enter the password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
         </label>
         <label>
-          <span>Confirmação de senha:</span>
+          <span>Password Confirmation:</span>
           <input
             type="password"
             name="confirmPassword"
             required
-            placeholder="Confirme a senha"
+            placeholder="Confirm the Password"
             onChange={(e) => setConfirmPassword(e.target.value)}
             value={confirmPassword}
           />
         </label>
-        {!loading && <button className="btn">Entrar</button>}
+        {!loading && <button className="btn">Login</button>}
         {loading && (
           <button className="btn" disabled>
-            Aguarde...
+            Loading...
           </button>
         )}
         {error && <p className="error">{error}</p>}
