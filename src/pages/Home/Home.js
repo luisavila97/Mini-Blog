@@ -36,7 +36,7 @@ const Home = () => {
         <button className="btn btn-dark">Search</button>
       </form>
       <div className="post-list">
-        {loading && <p>CLoading...</p>}
+        {loading && <p>Loading...</p>}
         {posts && posts.length === 0 && (
           <div className={styles.noposts}>
             <p>No posts found</p>

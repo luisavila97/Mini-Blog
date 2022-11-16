@@ -5,8 +5,8 @@ import styles from "./PostDetail.module.css";
 const PostDetail = ({ post }) => {
   return (
     <div className={styles.post_detail}>
-      <img src={post.image} alt={post.title} />
       <h2>{post.title}</h2>
+      <img src={post.image} alt={post.title} />
       <p className={styles.createdby}>By: {post.createdBy}</p>
       <div className={styles.tags}>
         {post.tags.map((tag) => (
@@ -17,7 +17,7 @@ const PostDetail = ({ post }) => {
         ))}
       </div>
       <Link to={`/posts/${post.id}`} className="btn btn-outline">
-        Ler
+        Read
       </Link>
     </div>
   );
